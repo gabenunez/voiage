@@ -24,11 +24,9 @@ connection.once('open', () => {
 
 
 // Express Stuff/Routes
-const exercisesRouter = require('./routes/exercises');
-const usersRouter = require('./routes/users');
+const listingRouter = require('./routes/listing');
 
-app.use('/exercises', exercisesRouter);
-app.use('/users', usersRouter);
+app.use('/listing', listingRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
