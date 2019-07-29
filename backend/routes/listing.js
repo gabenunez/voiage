@@ -1,49 +1,61 @@
 const router = require('express').Router();
-let Exercise = require('../models/listing.js');
+const Listing = require('../models/listing.js');
 
-// Get list of exercices
+// Get list of listings
 router.route('/').get((req, res) => {
-  Exercise.find()
-    .then(exercises => res.json(exercises))
+  Listing.find().select('-email')
+    .then(listings => res.json(listings))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// Add exerise
+// Add Listing
 router.route('/add').post((req, res) => {
-  const username = req.body.username;
+  const name = req.body.name;
+  const email = req.body.email;
   const description = req.body.description;
-  const duration = Number(req.body.duration);
+  const yearsExperience = req.body.yearsExperience;
+  const games = req.body.games;
+  const pay = req.body.pay;
+  const location = req.body.location;
+  const availability = req.body.availability;
+  const timeZone = req.body.timeZone;
   const date = Date.parse(req.body.date);
 
-  const newExercise = new Exercise({
-    username,
+  const newListing = new Listing({
+    name,
+    email,
     description,
-    duration,
+    yearsExperience,
+    games,
+    pay,
+    location,
+    availability,
+    timeZone,
     date,
   });
 
-  newExercise.save()
-  .then(() => res.json('Exercise added!'))
+  newListing.save()
+  .then(() => res.json('Listing added!'))
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// Get exerise by id
+// Get by id
 router.route('/:id').get((req, res) => {
-  Exercise.findById(req.params.id)
+  Listing.findById(req.params.id)
     .then(exercise => res.json(exercise))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// Delete exerise by id
+// Delete by id
 router.route('/:id').delete((req, res) => {
-  Exercise.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Exercise deleted.'))
+  Listing.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Listing deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// Update exerise by id
+// Update
 router.route('/update/:id').post((req, res) => {
-  Exercise.findById(req.params.id)
+  Listing.findById(req.params.id)
     .then(exercise => {
       exercise.username = req.body.username;
       exercise.description = req.body.description;
@@ -51,7 +63,7 @@ router.route('/update/:id').post((req, res) => {
       exercise.date = Date.parse(req.body.date);
 
       exercise.save()
-        .then(() => res.json('Exercise updated!'))
+        .then(() => res.json('Listing updated!'))
         .catch(err => res.status(400).json('Error: ' + err));
     })
     .catch(err => res.status(400).json('Error: ' + err));

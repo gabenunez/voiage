@@ -25,7 +25,6 @@ connection.once('open', () => {
 
 // Express Stuff/Routes
 const listingRouter = require('./routes/listing');
-
 app.use('/listing', listingRouter);
 
 app.listen(port, () => {

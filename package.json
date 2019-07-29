@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "concurrently": "^4.1.1",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.10",
@@ -15,7 +16,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev" : "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "client": "react-scripts start",
+    "server": "cd backend && nodemon server"
   },
   "eslintConfig": {
     "extends": "react-app"
