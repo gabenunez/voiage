@@ -44,8 +44,8 @@ class Listings extends React.Component {
         <ListGroup>
           {
           this.state.listings ? 
-          this.state.listings.map(item => 
-          <ListItem key={item._id} name={item.name} games={item.games} yearsExperience={item.yearsExperience} pay={item.pay}/>)
+          this.state.listings.map((item, index) => 
+          <ListItem key={item._id} index={index} name={item.name} games={item.games} yearsExperience={item.yearsExperience} pay={item.pay} date_created={moment(item.createdAt).format("MMM Do")} />)
           : 
           <div className="d-md-flex align-items-center loading">
             <div className="spinner-border" role="status" aria-hidden="true"></div>
