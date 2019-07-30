@@ -22,10 +22,13 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
 
-
 // Express Stuff/Routes
 const listingRouter = require('./routes/listing');
-app.use('/listing', listingRouter);
+app.use('/api/listings', listingRouter);
+
+const serverTimeRouter = require('./routes/serverTime');
+app.use('/api/servertime', serverTimeRouter);
+
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

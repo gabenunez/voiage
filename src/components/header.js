@@ -15,11 +15,9 @@ function Header() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
             
-            <Nav.Link>
               <Link to='/create-listing'>
                 Create Listing
               </Link>
-            </Nav.Link>
             
           </Nav>
         </Navbar.Collapse>
