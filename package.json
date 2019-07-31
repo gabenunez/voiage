@@ -23,7 +23,6 @@
     "client": "react-scripts start",
     "server": "cd backend && nodemon server"
   },
-  "proxy": "http://localhost:5000/",
   "eslintConfig": {
     "extends": "react-app"
   },
