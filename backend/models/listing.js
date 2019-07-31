@@ -12,7 +12,9 @@ const listingSchema = new Schema({
       validator: isEmail,
       message: '{VALUE} is not a valid email',
       isAsync: false
-  }},
+    }, 
+    select: false
+  },
   description: { type: String, required: true },
   yearsExperience: { type: Number, required: true },
   games: { type: Array, required: true },

@@ -3,7 +3,7 @@ const Listing = require('../models/listing.js');
 
 // Get list of listings
 router.route('/').get((req, res) => {
-  Listing.find().select('-email')
+  Listing.find()
     .then(listings => res.json(listings))
     .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -42,7 +42,7 @@ router.route('/add').post((req, res) => {
 // Get by id
 router.route('/:id').get((req, res) => {
   Listing.findById(req.params.id)
-    .then(exercise => res.json(exercise))
+    .then(item => res.json(item))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
