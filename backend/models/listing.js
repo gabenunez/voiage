@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 
 const listingSchema = new Schema({
   name: { type: String, required: true },
+  avatar: {type: String, required: false},
   email: { 
     type: String, 
     required: true, 
@@ -16,13 +17,14 @@ const listingSchema = new Schema({
     select: false
   },
   description: { type: String, required: true },
-  yearsExperience: { type: Number, required: true },
-  games: { type: Array, required: true },
+  yearStartedPlaying: { type: Number, required: true },
   pay: { type: Object, required: true }, // AMOUNT/GAME/HOURLY
-  location: { type: Array, required: true }, // IN PERSON & ONLINE
-  availability: { type: Array, required: true }, // DAYS & TIMES
+  availableOnline: { type: Boolean, required: false },
+  availableInPerson: { type: Boolean, required: false}, 
+  daysAvailable: { type: Array, required: true }, // DAYS & TIMES
+  interests: { type: Array, required: false },
+  location: { type: String, required: false },
   timeZone: { type: String, required: true },
-  date: { type: Date, required: true },
 }, {
   timestamps: true,
 });

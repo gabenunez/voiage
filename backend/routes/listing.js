@@ -11,27 +11,31 @@ router.route('/').get((req, res) => {
 // Add Listing
 router.route('/add').post((req, res) => {
   const name = req.body.name;
+  const avatar = req.body.avatar;
   const email = req.body.email;
   const description = req.body.description;
-  const yearsExperience = req.body.yearsExperience;
-  const games = req.body.games;
+  const yearStartedPlaying = req.body.yearStartedPlaying;
   const pay = req.body.pay;
+  const availableOnline = req.body.availableOnline;
+  const availableInPerson = req.body.availableInPerson;
+  const daysAvailable = req.body.daysAvailable;
+  const interests = req.body.interests;
   const location = req.body.location;
-  const availability = req.body.availability;
   const timeZone = req.body.timeZone;
-  const date = Date.parse(req.body.date);
 
   const newListing = new Listing({
     name,
+    avatar,
     email,
     description,
-    yearsExperience,
-    games,
+    yearStartedPlaying,
     pay,
+    availableOnline,
+    availableInPerson,
+    daysAvailable,
+    interests,
     location,
-    availability,
     timeZone,
-    date,
   });
 
   newListing.save()

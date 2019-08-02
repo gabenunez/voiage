@@ -3,6 +3,10 @@
 }
 
 #listings {
+  a {
+    color: #212529;
+    text-decoration: none;
+  }
   .heading {
     margin-bottom: 1em;
     h1 {
@@ -18,15 +22,40 @@
     }
   }
   .list-group-item {
+    svg {
+      margin-right: .3em;
+    }
     h3, h4 {
       margin-bottom: 0;
+      line-height: 1.2em;
     }
     h3 {
       font-size: 1.5em;
+      span {
+        font-size: .5em;
+        font-weight: 300;
+      }
     }
     h4 {
-      font-size: 1.2em;
+      font-size: 1em;
       font-weight: 400;
+      padding-bottom: .2em;
+      span {
+        padding-right: .4em;
+      }
+    }
+    ul {
+      font-size: .9em;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        display: inline-block;
+        margin: .2em .2em;
+        border: solid 1px;
+        border-radius: 5px;
+        padding: 0 .3em;
+      }
     }
   }
 
@@ -53,11 +82,24 @@
   }
 
   }
+  .post {
+    @media (min-width: 768px) {
+      .image-container {
+        text-align: center;
+      }
+    }
+    img {
+      border-radius: 50%;
+      box-shadow: black 1px 1px 2px;
+      max-height: 100px;
+    }
+  }
   .post:hover {
       box-shadow: #dfdfdfc4 2px 2px 2px;
       cursor: pointer;
       transition: .3s;
   }
+
 
 .list-group-item, .list-group-item:first-child, .list-group-item:last-child {
   border-radius: 0;
